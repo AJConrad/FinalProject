@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49223A261D132A4D0006CF27 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A251D132A4D0006CF27 /* AudioToolbox.framework */; };
+		49223A281D132A5A0006CF27 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A271D132A5A0006CF27 /* AVFoundation.framework */; };
+		49223A461D1334C10006CF27 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 49223A431D1334C10006CF27 /* AcousticModelEnglish.bundle */; };
+		49223A471D1334C10006CF27 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A441D1334C10006CF27 /* OpenEars.framework */; };
+		49223A481D1334C10006CF27 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A451D1334C10006CF27 /* Slt.framework */; };
+		49BA0FAC1D0F00CF003E3CDD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA0FAB1D0F00CF003E3CDD /* CoreMotion.framework */; };
+		49BA0FC01D104A81003E3CDD /* AccelerometerDataTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */; };
+		49BA0FCE1D11A4F1003E3CDD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */; };
+		49BA0FD01D11E3AF003E3CDD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA0FCF1D11E3AF003E3CDD /* MapKit.framework */; };
+		49BA0FD31D11EB78003E3CDD /* Pothole+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */; };
+		49BA0FD41D11EB78003E3CDD /* Pothole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FD21D11EB78003E3CDD /* Pothole.swift */; };
+		49E7C2B11D0A0AA20056CB47 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B01D0A0AA20056CB47 /* Reachability.m */; };
+		49E7C2B51D0A13090056CB47 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B41D0A13090056CB47 /* NetworkManager.swift */; };
+		49E7C2B71D0B24270056CB47 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B61D0B24270056CB47 /* DataManager.swift */; };
 		49FF2FE51D087B1E00E68920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF2FE41D087B1E00E68920 /* AppDelegate.swift */; };
 		49FF2FE71D087B1E00E68920 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF2FE61D087B1E00E68920 /* ViewController.swift */; };
 		49FF2FEA1D087B1E00E68920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FF2FE81D087B1E00E68920 /* Main.storyboard */; };
@@ -15,6 +29,10 @@
 		49FF2FF21D087B1E00E68920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FF2FF01D087B1E00E68920 /* LaunchScreen.storyboard */; };
 		49FF2FFD1D087B1F00E68920 /* DetroitPotholeReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF2FFC1D087B1F00E68920 /* DetroitPotholeReporterTests.swift */; };
 		49FF30081D087B1F00E68920 /* DetroitPotholeReporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FF30071D087B1F00E68920 /* DetroitPotholeReporterUITests.swift */; };
+		49FF301A1D087FCD00E68920 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FF30191D087FCD00E68920 /* CoreLocation.framework */; };
+		6AD1463D96552CF7B4CE93B5 /* Pods_DetroitPotholeReporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7EFFB340B71D6A73FE8C9C /* Pods_DetroitPotholeReporterTests.framework */; };
+		CE4C8E822335B7D4BD80866E /* Pods_DetroitPotholeReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0FC5194E71A7047C6A335B /* Pods_DetroitPotholeReporter.framework */; };
+		F4E269CC06A1BAD3BCA1C82C /* Pods_DetroitPotholeReporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9E8D07F39775CF9398C2D1 /* Pods_DetroitPotholeReporterUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +53,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B91ECF6679D20EB13A2FFE9 /* Pods-DetroitPotholeReporterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporterUITests/Pods-DetroitPotholeReporterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F9E8D07F39775CF9398C2D1 /* Pods_DetroitPotholeReporterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetroitPotholeReporterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7EFFB340B71D6A73FE8C9C /* Pods_DetroitPotholeReporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetroitPotholeReporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40D94196E0571A44A4399402 /* Pods-DetroitPotholeReporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporterTests/Pods-DetroitPotholeReporterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		49223A251D132A4D0006CF27 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		49223A271D132A5A0006CF27 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		49223A431D1334C10006CF27 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		49223A441D1334C10006CF27 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		49223A451D1334C10006CF27 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		49BA0FAB1D0F00CF003E3CDD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerDataTrigger.swift; sourceTree = "<group>"; };
+		49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		49BA0FCF1D11E3AF003E3CDD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pothole+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49BA0FD21D11EB78003E3CDD /* Pothole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pothole.swift; sourceTree = "<group>"; };
+		49E7C2AE1D0A0AA10056CB47 /* DetroitPotholeReporter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DetroitPotholeReporter-Bridging-Header.h"; sourceTree = "<group>"; };
+		49E7C2AF1D0A0AA20056CB47 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		49E7C2B01D0A0AA20056CB47 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		49E7C2B41D0A13090056CB47 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		49E7C2B61D0B24270056CB47 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		49FF2FE11D087B1E00E68920 /* DetroitPotholeReporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetroitPotholeReporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FF2FE41D087B1E00E68920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49FF2FE61D087B1E00E68920 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +87,12 @@
 		49FF30031D087B1F00E68920 /* DetroitPotholeReporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetroitPotholeReporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FF30071D087B1F00E68920 /* DetroitPotholeReporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetroitPotholeReporterUITests.swift; sourceTree = "<group>"; };
 		49FF30091D087B1F00E68920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FF30191D087FCD00E68920 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5B0FC5194E71A7047C6A335B /* Pods_DetroitPotholeReporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetroitPotholeReporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FABF3AE0C624AB9B14BD2BF /* Pods-DetroitPotholeReporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporterUITests/Pods-DetroitPotholeReporterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		98E38E408964CF9989C12692 /* Pods-DetroitPotholeReporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporter/Pods-DetroitPotholeReporter.debug.xcconfig"; sourceTree = "<group>"; };
+		A7B641BBD424FA15240F7B25 /* Pods-DetroitPotholeReporterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporterTests/Pods-DetroitPotholeReporterTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA0E67A82AED995010BC40D7 /* Pods-DetroitPotholeReporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetroitPotholeReporter.release.xcconfig"; path = "Pods/Target Support Files/Pods-DetroitPotholeReporter/Pods-DetroitPotholeReporter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +100,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49223A471D1334C10006CF27 /* OpenEars.framework in Frameworks */,
+				49223A281D132A5A0006CF27 /* AVFoundation.framework in Frameworks */,
+				49223A261D132A4D0006CF27 /* AudioToolbox.framework in Frameworks */,
+				49BA0FD01D11E3AF003E3CDD /* MapKit.framework in Frameworks */,
+				49223A481D1334C10006CF27 /* Slt.framework in Frameworks */,
+				49BA0FAC1D0F00CF003E3CDD /* CoreMotion.framework in Frameworks */,
+				49FF301A1D087FCD00E68920 /* CoreLocation.framework in Frameworks */,
+				CE4C8E822335B7D4BD80866E /* Pods_DetroitPotholeReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD1463D96552CF7B4CE93B5 /* Pods_DetroitPotholeReporterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +123,73 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E269CC06A1BAD3BCA1C82C /* Pods_DetroitPotholeReporterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE62C66F415CABB54E31A02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98E38E408964CF9989C12692 /* Pods-DetroitPotholeReporter.debug.xcconfig */,
+				EA0E67A82AED995010BC40D7 /* Pods-DetroitPotholeReporter.release.xcconfig */,
+				40D94196E0571A44A4399402 /* Pods-DetroitPotholeReporterTests.debug.xcconfig */,
+				A7B641BBD424FA15240F7B25 /* Pods-DetroitPotholeReporterTests.release.xcconfig */,
+				0B91ECF6679D20EB13A2FFE9 /* Pods-DetroitPotholeReporterUITests.debug.xcconfig */,
+				8FABF3AE0C624AB9B14BD2BF /* Pods-DetroitPotholeReporterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		49223A291D132AC00006CF27 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		49223A301D132AF20006CF27 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				49223A431D1334C10006CF27 /* AcousticModelEnglish.bundle */,
+				49223A441D1334C10006CF27 /* OpenEars.framework */,
+				49223A451D1334C10006CF27 /* Slt.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		49BA0FBE1D0F0A56003E3CDD /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */,
+				49BA0FD21D11EB78003E3CDD /* Pothole.swift */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		49E7C2B31D0A0BDE0056CB47 /* Rechability */ = {
+			isa = PBXGroup;
+			children = (
+				49223A291D132AC00006CF27 /* Framework */,
+				49E7C2AF1D0A0AA20056CB47 /* Reachability.h */,
+				49E7C2B01D0A0AA20056CB47 /* Reachability.m */,
+			);
+			name = Rechability;
+			sourceTree = "<group>";
+		};
 		49FF2FD81D087B1E00E68920 = {
 			isa = PBXGroup;
 			children = (
+				49BA0FAB1D0F00CF003E3CDD /* CoreMotion.framework */,
+				49FF30191D087FCD00E68920 /* CoreLocation.framework */,
 				49FF2FE31D087B1E00E68920 /* DetroitPotholeReporter */,
 				49FF2FFB1D087B1F00E68920 /* DetroitPotholeReporterTests */,
 				49FF30061D087B1F00E68920 /* DetroitPotholeReporterUITests */,
 				49FF2FE21D087B1E00E68920 /* Products */,
+				0DE62C66F415CABB54E31A02 /* Pods */,
+				6C9923650E4A51F094FE3482 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +208,19 @@
 			children = (
 				49FF2FE41D087B1E00E68920 /* AppDelegate.swift */,
 				49FF2FE61D087B1E00E68920 /* ViewController.swift */,
+				49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */,
+				49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */,
+				49E7C2B41D0A13090056CB47 /* NetworkManager.swift */,
+				49E7C2B61D0B24270056CB47 /* DataManager.swift */,
 				49FF2FE81D087B1E00E68920 /* Main.storyboard */,
 				49FF2FEE1D087B1E00E68920 /* Assets.xcassets */,
 				49FF2FF01D087B1E00E68920 /* LaunchScreen.storyboard */,
 				49FF2FF31D087B1F00E68920 /* Info.plist */,
 				49FF2FEB1D087B1E00E68920 /* DetroitPotholeReporter.xcdatamodeld */,
+				49223A301D132AF20006CF27 /* Framework */,
+				49E7C2AE1D0A0AA10056CB47 /* DetroitPotholeReporter-Bridging-Header.h */,
+				49BA0FBE1D0F0A56003E3CDD /* Object */,
+				49E7C2B31D0A0BDE0056CB47 /* Rechability */,
 			);
 			path = DetroitPotholeReporter;
 			sourceTree = "<group>";
@@ -128,6 +243,19 @@
 			path = DetroitPotholeReporterUITests;
 			sourceTree = "<group>";
 		};
+		6C9923650E4A51F094FE3482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49223A271D132A5A0006CF27 /* AVFoundation.framework */,
+				49223A251D132A4D0006CF27 /* AudioToolbox.framework */,
+				49BA0FCF1D11E3AF003E3CDD /* MapKit.framework */,
+				5B0FC5194E71A7047C6A335B /* Pods_DetroitPotholeReporter.framework */,
+				3A7EFFB340B71D6A73FE8C9C /* Pods_DetroitPotholeReporterTests.framework */,
+				2F9E8D07F39775CF9398C2D1 /* Pods_DetroitPotholeReporterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49FF300C1D087B1F00E68920 /* Build configuration list for PBXNativeTarget "DetroitPotholeReporter" */;
 			buildPhases = (
+				CC97F71DC1764B4A5BD9BD42 /* 📦 Check Pods Manifest.lock */,
 				49FF2FDD1D087B1E00E68920 /* Sources */,
 				49FF2FDE1D087B1E00E68920 /* Frameworks */,
 				49FF2FDF1D087B1E00E68920 /* Resources */,
+				DB9E347542897B14A4988163 /* 📦 Embed Pods Frameworks */,
+				0B048D553A3E1EED65A83097 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49FF300F1D087B1F00E68920 /* Build configuration list for PBXNativeTarget "DetroitPotholeReporterTests" */;
 			buildPhases = (
+				0A06FA30DCB6BCC91D993E3F /* 📦 Check Pods Manifest.lock */,
 				49FF2FF41D087B1F00E68920 /* Sources */,
 				49FF2FF51D087B1F00E68920 /* Frameworks */,
 				49FF2FF61D087B1F00E68920 /* Resources */,
+				1ECC1208383B4E9CCB49657E /* 📦 Embed Pods Frameworks */,
+				BA6A81BDFE280CFE9BD2E5AC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49FF30121D087B1F00E68920 /* Build configuration list for PBXNativeTarget "DetroitPotholeReporterUITests" */;
 			buildPhases = (
+				A725D10026073855194B687B /* 📦 Check Pods Manifest.lock */,
 				49FF2FFF1D087B1F00E68920 /* Sources */,
 				49FF30001D087B1F00E68920 /* Frameworks */,
 				49FF30011D087B1F00E68920 /* Resources */,
+				2D1998A567083DCD64F43415 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +332,12 @@
 				TargetAttributes = {
 					49FF2FE01D087B1E00E68920 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TYEMF78S4K;
+						DevelopmentTeam = YK4G43UBJ8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					49FF2FF71D087B1F00E68920 = {
 						CreatedOnToolsVersion = 7.3;
@@ -236,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FF2FF21D087B1E00E68920 /* LaunchScreen.storyboard in Resources */,
+				49223A461D1334C10006CF27 /* AcousticModelEnglish.bundle in Resources */,
 				49FF2FEF1D087B1E00E68920 /* Assets.xcassets in Resources */,
 				49FF2FEA1D087B1E00E68920 /* Main.storyboard in Resources */,
 			);
@@ -257,13 +399,143 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A06FA30DCB6BCC91D993E3F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0B048D553A3E1EED65A83097 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DetroitPotholeReporter/Pods-DetroitPotholeReporter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ECC1208383B4E9CCB49657E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DetroitPotholeReporterTests/Pods-DetroitPotholeReporterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D1998A567083DCD64F43415 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DetroitPotholeReporterUITests/Pods-DetroitPotholeReporterUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A725D10026073855194B687B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA6A81BDFE280CFE9BD2E5AC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DetroitPotholeReporterTests/Pods-DetroitPotholeReporterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC97F71DC1764B4A5BD9BD42 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB9E347542897B14A4988163 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DetroitPotholeReporter/Pods-DetroitPotholeReporter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49FF2FDD1D087B1E00E68920 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				49FF2FE71D087B1E00E68920 /* ViewController.swift in Sources */,
+				49BA0FD41D11EB78003E3CDD /* Pothole.swift in Sources */,
+				49BA0FC01D104A81003E3CDD /* AccelerometerDataTrigger.swift in Sources */,
+				49BA0FCE1D11A4F1003E3CDD /* MapViewController.swift in Sources */,
+				49E7C2B71D0B24270056CB47 /* DataManager.swift in Sources */,
+				49BA0FD31D11EB78003E3CDD /* Pothole+CoreDataProperties.swift in Sources */,
 				49FF2FE51D087B1E00E68920 /* AppDelegate.swift in Sources */,
+				49E7C2B51D0A13090056CB47 /* NetworkManager.swift in Sources */,
+				49E7C2B11D0A0AA20056CB47 /* Reachability.m in Sources */,
 				49FF2FED1D087B1E00E68920 /* DetroitPotholeReporter.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +609,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Conrad (D966YA5DKU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Conrad (D966YA5DKU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -383,7 +656,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Conrad (YK4G43UBJ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Conrad (YK4G43UBJ8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -406,28 +680,50 @@
 		};
 		49FF300D1D087B1F00E68920 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98E38E408964CF9989C12692 /* Pods-DetroitPotholeReporter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DetroitPotholeReporter/Framework",
+				);
 				INFOPLIST_FILE = DetroitPotholeReporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ironyardstudent.DetroitPotholeReporter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.conrad.DetroitPotholeReporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DetroitPotholeReporter/DetroitPotholeReporter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		49FF300E1D087B1F00E68920 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA0E67A82AED995010BC40D7 /* Pods-DetroitPotholeReporter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DetroitPotholeReporter/Framework",
+				);
 				INFOPLIST_FILE = DetroitPotholeReporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ironyardstudent.DetroitPotholeReporter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.conrad.DetroitPotholeReporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DetroitPotholeReporter/DetroitPotholeReporter-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		49FF30101D087B1F00E68920 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40D94196E0571A44A4399402 /* Pods-DetroitPotholeReporterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DetroitPotholeReporterTests/Info.plist;
@@ -440,6 +736,7 @@
 		};
 		49FF30111D087B1F00E68920 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7B641BBD424FA15240F7B25 /* Pods-DetroitPotholeReporterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DetroitPotholeReporterTests/Info.plist;
@@ -452,6 +749,7 @@
 		};
 		49FF30131D087B1F00E68920 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B91ECF6679D20EB13A2FFE9 /* Pods-DetroitPotholeReporterUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = DetroitPotholeReporterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -463,6 +761,7 @@
 		};
 		49FF30141D087B1F00E68920 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FABF3AE0C624AB9B14BD2BF /* Pods-DetroitPotholeReporterUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = DetroitPotholeReporterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -491,6 +790,7 @@
 				49FF300E1D087B1F00E68920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FF300F1D087B1F00E68920 /* Build configuration list for PBXNativeTarget "DetroitPotholeReporterTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +799,7 @@
 				49FF30111D087B1F00E68920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FF30121D087B1F00E68920 /* Build configuration list for PBXNativeTarget "DetroitPotholeReporterUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +808,7 @@
 				49FF30141D087B1F00E68920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
