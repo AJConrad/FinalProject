@@ -8,12 +8,15 @@
 
 import UIKit
 
+//class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let dataManager = DataManager.sharedInstance
     let networkManager = NetworkManager.sharedInstance
     let backendless = Backendless.sharedInstance()
     let accelerometerDataTrigger = AccelerometerDataTrigger.sharedInstance
+    var mappedPotholesArray = [bePothole]()
+//    var selectedPothole = Pothole.self
 
     @IBOutlet weak var potholeMap: MKMapView!
     
@@ -44,6 +47,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 dropPin.coordinate = pinLoc
                 dropPin.title = "\(counter)"
                 potholeMap.addAnnotation(dropPin)
+//                mappedPotholesArray.append(newAnnots)
+                
                 counter = counter + 1
             }
         }
@@ -52,10 +57,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.potholeMap.delegate = self
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataManager.downloadPotholes()
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print ("Will Dis")
+        for savingPothole in mappedPotholesArray {
+            dataManager.saveConfirmedPotholes(savingPothole)
+            print("Save \(savingPothole)")
+        }
+    }
 }

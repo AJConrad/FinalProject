@@ -77,17 +77,17 @@ class AccelerometerDataTrigger: NSObject, CLLocationManagerDelegate, OEEventsObs
                     
                     if (-0.3 <= currentRoll && currentRoll <= 0.3) && (-0.3 <= currentPitch && currentPitch <= 0.3) {
                         //Z AXIS IS VERTICAL
-                        if udata.userAcceleration.z > 1.0 || udata.userAcceleration.z < -1.0 {
+                        if udata.userAcceleration.z > 0.6 || udata.userAcceleration.z < -0.6 {
                             self!.addPotholes(udata.userAcceleration.x, yMove: udata.userAcceleration.y, zMove: udata.userAcceleration.z, verticalAxis: "z")
                         }
                     } else if (-0.3 <= currentRoll && currentRoll <= 0.3) && (-0.3 <= currentYaw && currentYaw <= 0.3) {
                         //Y AXIS IS VERTICAL
-                        if udata.userAcceleration.y > 1.0 || udata.userAcceleration.y < -1.0 {
+                        if udata.userAcceleration.y > 0.6 || udata.userAcceleration.y < -0.6 {
                             self!.addPotholes(udata.userAcceleration.x, yMove: udata.userAcceleration.y, zMove: udata.userAcceleration.z, verticalAxis: "y")
                         }
                     } else if (1.2 <= currentRoll && currentRoll <= 1.8) && (-0.3 <= currentPitch && currentPitch <= 0.3) {
                         //X AXIS IS VERTICAL
-                        if udata.userAcceleration.x > 1.0 || udata.userAcceleration.x < -1.0 {
+                        if udata.userAcceleration.x > 0.6 || udata.userAcceleration.x < -0.6 {
                             self!.addPotholes(udata.userAcceleration.x, yMove: udata.userAcceleration.y, zMove: udata.userAcceleration.z, verticalAxis: "x")
                         }
                     }
@@ -112,11 +112,26 @@ class AccelerometerDataTrigger: NSObject, CLLocationManagerDelegate, OEEventsObs
         newShake.yaw = deviceMotionManager.deviceMotion?.attitude.yaw
         newShake.latitude = loc.coordinate.latitude
         newShake.longitude = loc.coordinate.longitude
+        determineVerticalAxis()
+        newShake.verticalAxis = verticalAxis
+        print("Added Pothole vert \(verticalAxis)")
         appDelegate.saveContext()
         NSNotificationCenter.defaultCenter().postNotificationName(motionAndTableNotification, object: self)
         
     }
     
+    func determineVerticalAxis() {
+        var verticalAxis = ""
+        if (-0.3 <= deviceMotionManager.deviceMotion?.attitude.roll && deviceMotionManager.deviceMotion?.attitude.roll <= 0.3) && (-0.3 <= deviceMotionManager.deviceMotion?.attitude.pitch && deviceMotionManager.deviceMotion?.attitude.pitch <= 0.3) {
+            verticalAxis = "z"
+            } else if (-0.3 <= deviceMotionManager.deviceMotion?.attitude.roll && deviceMotionManager.deviceMotion?.attitude.roll <= 0.3) && (-0.3 <= deviceMotionManager.deviceMotion?.attitude.yaw && deviceMotionManager.deviceMotion?.attitude.yaw <= 0.3) {
+            verticalAxis = "y"
+            } else if (1.2 <= deviceMotionManager.deviceMotion?.attitude.roll && deviceMotionManager.deviceMotion?.attitude.roll <= 1.8) && (-0.3 <= deviceMotionManager.deviceMotion?.attitude.pitch && deviceMotionManager.deviceMotion?.attitude.pitch <= 0.3) {
+            verticalAxis = "x"
+            print ("func determineVert \(verticalAxis)")
+        }
+        
+    }
     
 
     //MARK: - Location Methods
@@ -198,13 +213,14 @@ class AccelerometerDataTrigger: NSObject, CLLocationManagerDelegate, OEEventsObs
             switch hypothesis {
             case "POTHOLE", "POT HOLE", "POT", "WHOLE", "HOLE", "YES", "NO":
                 print("Pothole")
-                addPotholes((deviceMotionManager.deviceMotion?.userAcceleration.x)!, yMove: (deviceMotionManager.deviceMotion?.userAcceleration.y)!, zMove: (deviceMotionManager.deviceMotion?.userAcceleration.z)!, verticalAxis: "x")
+                addPotholes((deviceMotionManager.deviceMotion?.userAcceleration.x)!, yMove: (deviceMotionManager.deviceMotion?.userAcceleration.y)!, zMove: (deviceMotionManager.deviceMotion?.userAcceleration.z)!, verticalAxis: "")
             case "FALSE", "NO":
                 print("False")
                 tempShakesArray[tempShakesArray.count - 1].isConfirmed = false
-            case "TRUE", "NO":
+            case "TRUE", "YES":
                 print("True")
                 tempShakesArray[tempShakesArray.count - 1].isConfirmed = true
+                //CHANGE THESE TO SAVE AND CONVERT
             default:
                 print("Didn't hear match, but got \(hypothesis) confidently \(recognitionScore)")
                 //Add something where the phone says "Say either "Pothole" or "False"

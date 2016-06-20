@@ -11,6 +11,8 @@ import CoreData
 
 //TO ASK TOM LIST:
 
+//4 DECIMAL PLACES FOR THE POTHOLES, 11 meters difference
+
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -36,17 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let currentPothole = accelerometerDataTrigger.tempShakesArray[indexPath.row]
         
-        if let currentRoll = currentPothole.roll, currentPitch = currentPothole.pitch, currentYaw = currentPothole.yaw {
-            if (-0.3 <= currentRoll.doubleValue && currentRoll.doubleValue <= 0.3) &&
-               (-0.3 <= currentPitch.doubleValue && currentPitch.doubleValue <= 0.3) {
+        if let currentAxis = currentPothole.verticalAxis {
+            if currentAxis == "z" {
                 let formatterZ = String(format: "%0.2f", currentPothole.zMove!.doubleValue)
                 cell.textLabel!.text = "Flat Bounce in Gs: \(formatterZ)"
-            } else if (-0.3 <= currentRoll.doubleValue && currentRoll.doubleValue <= 0.3) &&
-                (-0.3 <= currentYaw.doubleValue && currentYaw.doubleValue <= 0.3) {
+            } else if currentAxis == "y" {
                 let formatterY = String(format: "%0.2f", currentPothole.yMove!.doubleValue)
                 cell.textLabel!.text = "Portrait Bounce in Gs: \(formatterY)"
-            } else if (1.2 <= currentRoll.doubleValue && currentRoll.doubleValue <= 1.8) &&
-                (-0.3 <= currentPitch.doubleValue && currentPitch.doubleValue <= 0.3) {
+            } else if currentAxis == "x" {
                 let formatterX = String(format: "%0.2f", currentPothole.xMove!.doubleValue)
                 cell.textLabel!.text = "Landscape Bounce in Gs: \(formatterX)"
             } else {
@@ -74,6 +73,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func convertPotholeToBEPothole(from: Pothole) -> bePothole {
+        let newPotholeConvert = bePothole()
+        
+        newPotholeConvert.latitude = (from.latitude?.doubleValue)!
+        newPotholeConvert.longitude = (from.longitude?.doubleValue)!
+        newPotholeConvert.xMove = (from.xMove?.doubleValue)!
+        newPotholeConvert.yMove = (from.yMove?.doubleValue)!
+        newPotholeConvert.zMove = (from.zMove?.doubleValue)!
+        newPotholeConvert.isConfirmed = (from.isConfirmed?.boolValue)!
+        newPotholeConvert.roll = (from.roll?.doubleValue)!
+        newPotholeConvert.pitch = (from.pitch?.doubleValue)!
+        newPotholeConvert.yaw = (from.yaw?.doubleValue)!
+        newPotholeConvert.verticalAxis = from.verticalAxis
+        
+        return newPotholeConvert
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let currentPothole = accelerometerDataTrigger.tempShakesArray[indexPath.row]
         if let confirmed = currentPothole.isConfirmed {
@@ -82,6 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             currentPothole.isConfirmed = true
         }
         appDelegate.saveContext()
+        dataManager.saveConfirmedPotholes(convertPotholeToBEPothole(currentPothole))
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     

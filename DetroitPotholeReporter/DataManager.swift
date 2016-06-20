@@ -12,10 +12,34 @@ class DataManager: NSObject {
 
     static let sharedInstance = DataManager()
     
+    let accelerometerDataTrigger = AccelerometerDataTrigger.sharedInstance
+    let backendless = Backendless.sharedInstance()
     var baseURL = "www.backendless.com"
     var verifiedPotholesArray = [Pothole]()
+    var selectedPothole : Pothole?
     
-    
+    func downloadPotholes() {
+        let dataQuery = BackendlessDataQuery()
+        let whereClause = "pothole.isConfirmed = '1'"
+        dataQuery.whereClause = whereClause
+        var error: Fault?
+        let bc = backendless.data.of(Pothole.ofClass()).find(dataQuery, fault: &error)
+        if error == nil {
+            verifiedPotholesArray = bc.getCurrentPage() as! [Pothole]
+            accelerometerDataTrigger.tempShakesArray += verifiedPotholesArray
+        }
+    }
+
+    func saveConfirmedPotholes(savingPothole: bePothole) {
+        let dataStore = backendless.data.of(Pothole.ofClass())
+        if savingPothole.isConfirmed == true {
+            dataStore.save(savingPothole, response: { (response) in
+                print("Potholes Saved")
+            }) { (error) in
+                print("Pothole not saved, error \(error)")
+            }
+        }
+    }
 }
 //import UIKit
 //
