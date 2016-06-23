@@ -2,7 +2,7 @@
 //  Pothole.swift
 //  DetroitPotholeReporter
 //
-//  Created by Andrew Conrad on 6/15/16.
+//  Created by Andrew Conrad on 6/22/16.
 //  Copyright © 2016 AndrewConrad. All rights reserved.
 //
 

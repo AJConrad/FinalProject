@@ -10,9 +10,25 @@ import UIKit
 import CoreData
 
 //TO ASK TOM LIST:
+//ADD BUTTON THAT DELETES CORE DATA (the current trip array) + UPLOADS TO BACKENDLESS
+//CHECKS FOR POTHOLES WITHIN 4 DECIMAL PLACES GPS LOCATION, DOESNT ADD TO USER'S BACKENDLESS IF TRUE
+//IF "X" NUMBER OF USERS REPORTED A POTHOLE, FLAG AS GLOBALLY AVAILABLE
+//MOVE CURRENT BACKENDLESS ADDITION TO BUTTON TO ENABLE OFFLINE USAGE
+//ADD BACKENDLESS USERS AND AN INITAL VIEW CONTROLLER FOR LOGIN (or choice to not log in)
+//ONLY ALLOW LOGGED IN USERS TO SUBMIT POTHOLE DATA
 
-//4 DECIMAL PLACES FOR THE POTHOLES, 11 meters difference
 
+//INFORMATION ON ATTITUDE
+//        //when the phone is flat, with the top facing ahead, all are close to 0. when top faces left, yaw
+//        //is about -1.75(-1.6). facing backward, yaw is 2.8(3.1). when facing left yaw is 1.2(1.5)
+//
+//        //when phone is held top vertically in portrait, roll and yaw are close to 0, pitch is close to 1.5(1.4)
+//        //when phone is held in landscape, top right, roll is 1.5, pitch is 0, yaw is -2(-1.65)
+//        //when upside down portrait, roll is 0, pitch is -1.5, yaw is 2.5(2.9)
+//        //when landscape top left, pitch is -1.5(-1.4), roll  is 0, yaw is 1.1(1.5)
+//
+//        //this first test run is going to be all flat. phone facing right. But later I may need to take
+//        //these into account, and maybe have to do a reset whenever phone is secured.
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,21 +38,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let networkManager = NetworkManager.sharedInstance
     let backendless = Backendless.sharedInstance()
     let accelerometerDataTrigger = AccelerometerDataTrigger.sharedInstance
+    let voiceRecognizer = VoiceRecognizer.sharedInstance
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
     
+    
+    @IBAction func submitEndList(sender: AnyObject) {
+        //FILL THIS SHIT OUT
+    }
     
     //MARK: - Table View Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accelerometerDataTrigger.tempShakesArray.count
+        return accelerometerDataTrigger.currentTripPotholeArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let currentPothole = accelerometerDataTrigger.tempShakesArray[indexPath.row]
+        let currentPothole = accelerometerDataTrigger.currentTripPotholeArray[indexPath.row]
         
         if let currentAxis = currentPothole.verticalAxis {
             if currentAxis == "z" {
@@ -49,21 +69,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let formatterX = String(format: "%0.2f", currentPothole.xMove!.doubleValue)
                 cell.textLabel!.text = "Landscape Bounce in Gs: \(formatterX)"
             } else {
-                cell.textLabel!.text = "Unable to resolve device facing"
+                cell.textLabel!.text = "Unable to resolve device attitude"
             }
         }
         
-        //these 4 lines were when the table was showing all movements when something went high over it
-//        let formatterX = String(format: "%0.2f", currentPothole.xMove!.doubleValue)
-//        let formatterY = String(format: "%0.2f", currentPothole.yMove!.doubleValue)
-//        let formatterZ = String(format: "%0.2f", currentPothole.zMove!.doubleValue)
-//        cell.textLabel!.text = "X \(formatterX) Y \(formatterY) Z \(formatterZ)"
-
         if let lat = currentPothole.latitude, lon = currentPothole.longitude {
             cell.detailTextLabel!.text = "\(String(format: "%0.6f",lat.doubleValue)), \(String(format: "%0.6f",lon.doubleValue))"
         } else {
             cell.detailTextLabel!.text = ""
         }
+        
         cell.backgroundColor = UIColor.clearColor()
         if let confirmed = currentPothole.isConfirmed {
             if confirmed.boolValue {
@@ -73,83 +88,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func convertPotholeToBEPothole(from: Pothole) -> bePothole {
-        let newPotholeConvert = bePothole()
-        
-        newPotholeConvert.latitude = (from.latitude?.doubleValue)!
-        newPotholeConvert.longitude = (from.longitude?.doubleValue)!
-        newPotholeConvert.xMove = (from.xMove?.doubleValue)!
-        newPotholeConvert.yMove = (from.yMove?.doubleValue)!
-        newPotholeConvert.zMove = (from.zMove?.doubleValue)!
-        newPotholeConvert.isConfirmed = (from.isConfirmed?.boolValue)!
-        newPotholeConvert.roll = (from.roll?.doubleValue)!
-        newPotholeConvert.pitch = (from.pitch?.doubleValue)!
-        newPotholeConvert.yaw = (from.yaw?.doubleValue)!
-        newPotholeConvert.verticalAxis = from.verticalAxis
-        
-        return newPotholeConvert
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentPothole = accelerometerDataTrigger.tempShakesArray[indexPath.row]
+        let currentPothole = accelerometerDataTrigger.currentTripPotholeArray[indexPath.row]
         if let confirmed = currentPothole.isConfirmed {
             currentPothole.isConfirmed = !confirmed.boolValue
         } else {
             currentPothole.isConfirmed = true
         }
         appDelegate.saveContext()
-        dataManager.saveConfirmedPotholes(convertPotholeToBEPothole(currentPothole))
+        dataManager.saveConfirmedPotholes(dataManager.convertPotholeToBEPothole(currentPothole))
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
-    
-    
-    //MARK: - Core Data Methods
-    
-//    @IBAction func newAttitude(sender: AnyObject) {
-//        //call attitude reset func here
-//        let testRoll = accelerometerDataTrigger.deviceMotionManager.deviceMotion?.attitude.roll //.udata.attitude.roll
-//        let testPitch = accelerometerDataTrigger.deviceMotionManager.deviceMotion?.attitude.pitch
-//        let testYaw = accelerometerDataTrigger.deviceMotionManager.deviceMotion?.attitude.yaw
-//        
-//        print ("\(testRoll) \(testPitch) \(testYaw)")
-//        
-//        //when the phone is flat, with the top facing ahead, all are close to 0. when top faces left, yaw
-//        //is about -1.75(-1.6). facing backward, yaw is 2.8(3.1). when facing left yaw is 1.2(1.5)
-//        
-//        //when phone is held top vertically in portrait, roll and yaw are close to 0, pitch is close to 1.5(1.4)
-//        //when phone is held in landscape, top right, roll is 1.5, pitch is 0, yaw is -2(-1.65)
-//        //when upside down portrait, roll is 0, pitch is -1.5, yaw is 2.5(2.9)
-//        //when landscape top left, pitch is -1.5(-1.4), roll  is 0, yaw is 1.1(1.5)
-//        
-//        //this first test run is going to be all flat. phone facing right. But later I may need to take
-//        //these into account, and maybe have to do a reset whenever phone is secured.
-//    }
-    
-    func fetchPotholes() -> [Pothole]? {
-        let fetchRequest = NSFetchRequest(entityName: "Pothole")
-        do {
-            accelerometerDataTrigger.tempShakesArray = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Pothole]
-            return accelerometerDataTrigger.tempShakesArray
-        } catch {
-            print("Error in pothole fetching")
-            return nil
-        }
-    }
-    
     func finishTable() {
-        fetchPotholes()
+        dataManager.fetchPotholes()
         self.tempShakesList.reloadData()
     }
     
-
+    
     
     //MARK: - Life Cycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         accelerometerDataTrigger.setupLocationMonitoring()
-        accelerometerDataTrigger.setUpOpenEars()
+        voiceRecognizer.setUpOpenEars()
+        print("View Did Load")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -157,9 +121,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         accelerometerDataTrigger.startMotionManager()
         finishTable()
+        dataManager.downloadPotholes()
+        dataManager.getClusterGeoPoints()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finishTable), name: accelerometerDataTrigger.motionAndTableNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finishTable), name: voiceRecognizer.motionAndTableNotification, object: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

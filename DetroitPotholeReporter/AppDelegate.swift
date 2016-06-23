@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let SECRET_KEY = "1F509088-54DF-37FA-FFA1-AB7D2F05D400"
     let VERSION_NUM = "v1"
     let backendless = Backendless.sharedInstance()
-
     var window: UIWindow?
 
 
@@ -25,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         backendless.initApp(APP_ID, secret: SECRET_KEY, version: VERSION_NUM)
         return true
     }
+    
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.

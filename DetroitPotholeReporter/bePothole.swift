@@ -20,5 +20,6 @@ class bePothole: NSObject {
     var pitch: Double = 0.0
     var yaw: Double = 0.0
     var verticalAxis: String!
+    var potholeGeoPoint :GeoPoint!
     
 }

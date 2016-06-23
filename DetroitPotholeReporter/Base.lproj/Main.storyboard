@@ -1,11 +1,160 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ep7-4a-8Bq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7iJ-7e-B6H">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
+        <!--Login-->
+        <scene sceneID="pkS-Cy-uKX">
+            <objects>
+                <viewController id="Fj4-Ee-7ho" customClass="LoginViewController" customModule="DetroitPotholeReporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sTw-bR-KlH"/>
+                        <viewControllerLayoutGuide type="bottom" id="iGU-wF-A6K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Gg-PD-OLg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ajc.on.kwaj@gmail.com" borderStyle="roundedRect" placeholder="Enter Email Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAN-5J-CuX">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <connections>
+                                    <action selector="entryFieldsChanged" destination="Fj4-Ee-7ho" eventType="editingChanged" id="Vbf-Fl-qXO"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ajc96555" borderStyle="roundedRect" placeholder="Enter Password Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q34-pb-zwd">
+                                <rect key="frame" x="20" y="110" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="entryFieldsChanged" destination="Fj4-Ee-7ho" eventType="editingChanged" id="gDH-nG-7sf"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vak-Io-yQ8">
+                                <rect key="frame" x="20" y="148" width="180" height="50"/>
+                                <color key="backgroundColor" red="0.18723484761853984" green="0.96101762820512815" blue="0.12522437774647532" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HF6-OY-lgI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="Fj4-Ee-7ho" eventType="touchUpInside" id="MYt-XM-6xd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-ZQ-42m">
+                                <rect key="frame" x="210" y="148" width="180" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.89422795130695243" blue="0.15555303374793816" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eZ1-N1-oX7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupButtonPressed:" destination="Fj4-Ee-7ho" eventType="touchUpInside" id="Ybr-Xk-MlA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5x-F5-jrM">
+                                <rect key="frame" x="400" y="148" width="180" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.23993607905485803" blue="0.22263665292421742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1V5-Qd-jrt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="contiueButtonPressed:" destination="Fj4-Ee-7ho" eventType="touchUpInside" id="ogY-9i-1Z3"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-cY-fqp">
+                                <rect key="frame" x="20" y="206" width="180" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284" id="1nn-2x-N1N"/>
+                                </constraints>
+                                <string key="text">If you have allready registered your account, press the "Login" button to detect and submit new potholes, as well as view your potholes and the communities' submissions.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O1c-Jy-md2">
+                                <rect key="frame" x="400" y="206" width="180" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284" id="Y3k-pz-7zv"/>
+                                </constraints>
+                                <string key="text">Without logging in, you can view potholes confirmed by the community in your area. You will not be able to submit detected potholes. Press the "Continue" button to do so.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qqz-Ki-XoX">
+                                <rect key="frame" x="210" y="206" width="180" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284" id="4IM-zK-EMS"/>
+                                </constraints>
+                                <string key="text">To submit new potholes, you must be a registered user. Enter the username and password you want to use in the above fields and press the "Register" button to do so.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="q34-pb-zwd" secondAttribute="trailing" id="2lT-UM-kLL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O1c-Jy-md2" secondAttribute="trailing" id="4q2-lL-huj"/>
+                            <constraint firstItem="O1c-Jy-md2" firstAttribute="top" secondItem="T5x-F5-jrM" secondAttribute="bottom" constant="8" id="6GY-vA-DrU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="q34-pb-zwd" secondAttribute="leading" id="6JJ-wz-yIe"/>
+                            <constraint firstItem="q34-pb-zwd" firstAttribute="top" secondItem="JAN-5J-CuX" secondAttribute="bottom" constant="8" id="8sK-7v-SAp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="vak-Io-yQ8" secondAttribute="leading" id="A7Z-CW-cVo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T5x-F5-jrM" secondAttribute="trailing" id="Dce-MZ-JUq"/>
+                            <constraint firstItem="O1c-Jy-md2" firstAttribute="width" secondItem="5Bd-cY-fqp" secondAttribute="width" id="G88-4C-cqz"/>
+                            <constraint firstItem="dyM-ZQ-42m" firstAttribute="leading" secondItem="vak-Io-yQ8" secondAttribute="trailing" constant="10" id="H5y-w6-Iti"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5Bd-cY-fqp" secondAttribute="leading" id="LsM-xQ-4XT"/>
+                            <constraint firstItem="T5x-F5-jrM" firstAttribute="leading" secondItem="dyM-ZQ-42m" secondAttribute="trailing" constant="10" id="TH0-NS-sCD"/>
+                            <constraint firstItem="5Bd-cY-fqp" firstAttribute="top" secondItem="vak-Io-yQ8" secondAttribute="bottom" constant="8" id="UV1-MW-w69"/>
+                            <constraint firstItem="Qqz-Ki-XoX" firstAttribute="top" secondItem="dyM-ZQ-42m" secondAttribute="bottom" constant="8" id="W9B-2M-V0i"/>
+                            <constraint firstItem="T5x-F5-jrM" firstAttribute="width" secondItem="vak-Io-yQ8" secondAttribute="width" id="YAg-ea-6Tc"/>
+                            <constraint firstItem="Qqz-Ki-XoX" firstAttribute="leading" secondItem="5Bd-cY-fqp" secondAttribute="trailing" constant="10" id="YMx-Mi-t4u"/>
+                            <constraint firstItem="JAN-5J-CuX" firstAttribute="top" secondItem="sTw-bR-KlH" secondAttribute="bottom" constant="8" id="Ytf-yy-GEH"/>
+                            <constraint firstItem="dyM-ZQ-42m" firstAttribute="top" secondItem="q34-pb-zwd" secondAttribute="bottom" constant="8" id="Zz8-ZL-U0a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JAN-5J-CuX" secondAttribute="trailing" id="aqJ-zT-PTT"/>
+                            <constraint firstItem="dyM-ZQ-42m" firstAttribute="width" secondItem="vak-Io-yQ8" secondAttribute="width" id="geD-fR-cIa"/>
+                            <constraint firstItem="O1c-Jy-md2" firstAttribute="leading" secondItem="Qqz-Ki-XoX" secondAttribute="trailing" constant="10" id="gsL-oY-iE4"/>
+                            <constraint firstItem="vak-Io-yQ8" firstAttribute="top" secondItem="q34-pb-zwd" secondAttribute="bottom" constant="8" id="mMc-4M-7HH"/>
+                            <constraint firstItem="Qqz-Ki-XoX" firstAttribute="width" secondItem="5Bd-cY-fqp" secondAttribute="width" id="nVf-RQ-OBb"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="JAN-5J-CuX" secondAttribute="leading" id="uZm-Gx-HPG"/>
+                            <constraint firstItem="T5x-F5-jrM" firstAttribute="top" secondItem="q34-pb-zwd" secondAttribute="bottom" constant="8" id="wC6-Xg-4wS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="eLe-N3-v7Q">
+                        <barButtonItem key="rightBarButtonItem" title="Temp Segue" id="CdK-NJ-nOU">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="Login" id="cOS-dX-uWJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loginButton" destination="vak-Io-yQ8" id="LmU-NE-wNl"/>
+                        <outlet property="loginTextField" destination="JAN-5J-CuX" id="tAh-NW-tdO"/>
+                        <outlet property="logoutButton" destination="T5x-F5-jrM" id="VHm-JY-RzI"/>
+                        <outlet property="passwordTextField" destination="q34-pb-zwd" id="ROy-ps-1ih"/>
+                        <outlet property="signupButton" destination="dyM-ZQ-42m" id="DOf-kp-27Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3q7-eh-RKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="811" y="-355"/>
+        </scene>
         <!--Temp Table View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -62,12 +211,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Temp Table View" id="Jd9-y3-gif">
-                        <barButtonItem key="rightBarButtonItem" title="Map View" id="lzK-0n-YGF">
-                            <connections>
-                                <action selector="newAttitude:" destination="BYZ-38-t0r" id="dg6-Vp-nCy"/>
-                                <segue destination="pWV-p7-kay" kind="show" id="lYO-Ab-M0q"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Map View" id="lzK-0n-YGF">
+                                <connections>
+                                    <segue destination="pWV-p7-kay" kind="show" id="lYO-Ab-M0q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Submit/End" id="15G-Re-vfN">
+                                <connections>
+                                    <action selector="submitEndList:" destination="BYZ-38-t0r" id="11J-gW-Lso"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tempShakesList" destination="ZHq-UC-CCU" id="2kM-CM-qUW"/>
@@ -75,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="-355"/>
+            <point key="canvasLocation" x="1495" y="-355"/>
         </scene>
         <!--Confirmed Potholes-->
         <scene sceneID="BoO-hW-gnZ">
@@ -102,11 +257,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Confirmed Potholes" id="8Rx-b7-Bls">
-                        <barButtonItem key="rightBarButtonItem" title="Zoom" id="4lJ-v4-TO4">
-                            <connections>
-                                <action selector="zoom:" destination="pWV-p7-kay" id="BhI-hF-YYz"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Zoom" id="4lJ-v4-TO4">
+                                <connections>
+                                    <action selector="zoom:" destination="pWV-p7-kay" id="BhI-hF-YYz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Submit/End" id="M0W-FK-9FE">
+                                <connections>
+                                    <action selector="submitEndMap:" destination="pWV-p7-kay" id="TaG-8S-5ur"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="potholeMap" destination="2ES-oF-8HW" id="eVq-CA-Loz"/>
@@ -114,25 +276,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yd7-b6-2cN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="-355"/>
+            <point key="canvasLocation" x="2165" y="-355"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="kg9-if-x19">
+        <scene sceneID="QEB-Ec-1pm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ep7-4a-8Bq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7iJ-7e-B6H" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cb4-5a-ACn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yUp-Ml-7pH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vro-Re-pUX"/>
+                        <segue destination="Fj4-Ee-7ho" kind="relationship" relationship="rootViewController" id="gsr-TV-A2z"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uVf-5O-6eG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAS-il-2G7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="-355"/>
+            <point key="canvasLocation" x="131" y="-355"/>
         </scene>
     </scenes>
 </document>

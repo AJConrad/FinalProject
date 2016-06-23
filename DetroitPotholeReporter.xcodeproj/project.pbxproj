@@ -13,12 +13,15 @@
 		49223A471D1334C10006CF27 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A441D1334C10006CF27 /* OpenEars.framework */; };
 		49223A481D1334C10006CF27 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49223A451D1334C10006CF27 /* Slt.framework */; };
 		49223A4A1D1864C80006CF27 /* bePothole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A491D1864C80006CF27 /* bePothole.swift */; };
+		49223A4C1D1882800006CF27 /* VoiceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A4B1D1882800006CF27 /* VoiceRecognizer.swift */; };
+		49223A4F1D199A7B0006CF27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A4E1D199A7B0006CF27 /* LoginViewController.swift */; };
+		49223A531D19C72D0006CF27 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A521D19C72D0006CF27 /* LoginManager.swift */; };
+		49223A781D1B22B20006CF27 /* Pothole+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A761D1B22B20006CF27 /* Pothole+CoreDataProperties.swift */; };
+		49223A791D1B22B20006CF27 /* Pothole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49223A771D1B22B20006CF27 /* Pothole.swift */; };
 		49BA0FAC1D0F00CF003E3CDD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA0FAB1D0F00CF003E3CDD /* CoreMotion.framework */; };
 		49BA0FC01D104A81003E3CDD /* AccelerometerDataTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */; };
 		49BA0FCE1D11A4F1003E3CDD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */; };
 		49BA0FD01D11E3AF003E3CDD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA0FCF1D11E3AF003E3CDD /* MapKit.framework */; };
-		49BA0FD31D11EB78003E3CDD /* Pothole+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */; };
-		49BA0FD41D11EB78003E3CDD /* Pothole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA0FD21D11EB78003E3CDD /* Pothole.swift */; };
 		49E7C2B11D0A0AA20056CB47 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B01D0A0AA20056CB47 /* Reachability.m */; };
 		49E7C2B51D0A13090056CB47 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B41D0A13090056CB47 /* NetworkManager.swift */; };
 		49E7C2B71D0B24270056CB47 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C2B61D0B24270056CB47 /* DataManager.swift */; };
@@ -64,12 +67,15 @@
 		49223A441D1334C10006CF27 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		49223A451D1334C10006CF27 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		49223A491D1864C80006CF27 /* bePothole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bePothole.swift; sourceTree = "<group>"; };
+		49223A4B1D1882800006CF27 /* VoiceRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecognizer.swift; sourceTree = "<group>"; };
+		49223A4E1D199A7B0006CF27 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		49223A521D19C72D0006CF27 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		49223A761D1B22B20006CF27 /* Pothole+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pothole+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49223A771D1B22B20006CF27 /* Pothole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pothole.swift; sourceTree = "<group>"; };
 		49BA0FAB1D0F00CF003E3CDD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerDataTrigger.swift; sourceTree = "<group>"; };
 		49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49BA0FCF1D11E3AF003E3CDD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pothole+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		49BA0FD21D11EB78003E3CDD /* Pothole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pothole.swift; sourceTree = "<group>"; };
 		49E7C2AE1D0A0AA10056CB47 /* DetroitPotholeReporter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DetroitPotholeReporter-Bridging-Header.h"; sourceTree = "<group>"; };
 		49E7C2AF1D0A0AA20056CB47 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		49E7C2B01D0A0AA20056CB47 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -162,11 +168,24 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
+		49223A4D1D1995330006CF27 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				49223A521D19C72D0006CF27 /* LoginManager.swift */,
+				49223A4B1D1882800006CF27 /* VoiceRecognizer.swift */,
+				49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */,
+				49E7C2B41D0A13090056CB47 /* NetworkManager.swift */,
+				49E7C2B61D0B24270056CB47 /* DataManager.swift */,
+				49E7C2AE1D0A0AA10056CB47 /* DetroitPotholeReporter-Bridging-Header.h */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
 		49BA0FBE1D0F0A56003E3CDD /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				49BA0FD11D11EB78003E3CDD /* Pothole+CoreDataProperties.swift */,
-				49BA0FD21D11EB78003E3CDD /* Pothole.swift */,
+				49223A761D1B22B20006CF27 /* Pothole+CoreDataProperties.swift */,
+				49223A771D1B22B20006CF27 /* Pothole.swift */,
 				49223A491D1864C80006CF27 /* bePothole.swift */,
 			);
 			name = Object;
@@ -210,18 +229,16 @@
 			isa = PBXGroup;
 			children = (
 				49FF2FE41D087B1E00E68920 /* AppDelegate.swift */,
+				49223A4E1D199A7B0006CF27 /* LoginViewController.swift */,
 				49FF2FE61D087B1E00E68920 /* ViewController.swift */,
 				49BA0FCD1D11A4F1003E3CDD /* MapViewController.swift */,
-				49BA0FBF1D104A81003E3CDD /* AccelerometerDataTrigger.swift */,
-				49E7C2B41D0A13090056CB47 /* NetworkManager.swift */,
-				49E7C2B61D0B24270056CB47 /* DataManager.swift */,
+				49223A4D1D1995330006CF27 /* Singletons */,
 				49FF2FE81D087B1E00E68920 /* Main.storyboard */,
 				49FF2FEE1D087B1E00E68920 /* Assets.xcassets */,
 				49FF2FF01D087B1E00E68920 /* LaunchScreen.storyboard */,
 				49FF2FF31D087B1F00E68920 /* Info.plist */,
 				49FF2FEB1D087B1E00E68920 /* DetroitPotholeReporter.xcdatamodeld */,
 				49223A301D132AF20006CF27 /* Framework */,
-				49E7C2AE1D0A0AA10056CB47 /* DetroitPotholeReporter-Bridging-Header.h */,
 				49BA0FBE1D0F0A56003E3CDD /* Object */,
 				49E7C2B31D0A0BDE0056CB47 /* Rechability */,
 			);
@@ -530,17 +547,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49223A781D1B22B20006CF27 /* Pothole+CoreDataProperties.swift in Sources */,
 				49FF2FE71D087B1E00E68920 /* ViewController.swift in Sources */,
-				49BA0FD41D11EB78003E3CDD /* Pothole.swift in Sources */,
+				49223A4C1D1882800006CF27 /* VoiceRecognizer.swift in Sources */,
 				49BA0FC01D104A81003E3CDD /* AccelerometerDataTrigger.swift in Sources */,
 				49BA0FCE1D11A4F1003E3CDD /* MapViewController.swift in Sources */,
 				49E7C2B71D0B24270056CB47 /* DataManager.swift in Sources */,
-				49BA0FD31D11EB78003E3CDD /* Pothole+CoreDataProperties.swift in Sources */,
 				49FF2FE51D087B1E00E68920 /* AppDelegate.swift in Sources */,
 				49E7C2B51D0A13090056CB47 /* NetworkManager.swift in Sources */,
+				49223A531D19C72D0006CF27 /* LoginManager.swift in Sources */,
 				49E7C2B11D0A0AA20056CB47 /* Reachability.m in Sources */,
 				49FF2FED1D087B1E00E68920 /* DetroitPotholeReporter.xcdatamodeld in Sources */,
+				49223A4F1D199A7B0006CF27 /* LoginViewController.swift in Sources */,
 				49223A4A1D1864C80006CF27 /* bePothole.swift in Sources */,
+				49223A791D1B22B20006CF27 /* Pothole.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
