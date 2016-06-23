@@ -21,7 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     //MARK: - Interactivity Methods
     
     @IBAction func submitEndMap(sender: AnyObject) {
-        //FILL OUT THIS SHIT
+        groupGeoPoints()
     }
     
     @IBAction func zoom(sender: AnyObject) {
@@ -36,6 +36,54 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     
+    //MARK: - GeoPoint Grouping
+    
+    func groupGeoPoints () {
+        //number of pixels wide the map currently is
+        let mapWidthInPixels = Double(potholeMap.bounds.size.width)
+        //the xy point of the top right corner
+        let nePoint = CGPointMake(self.potholeMap.bounds.origin.x + potholeMap.bounds.size.width, potholeMap.bounds.origin.y)
+        //the xy point of the bottom left corner
+        let swPoint = CGPointMake((self.potholeMap.bounds.origin.x), (potholeMap.bounds.origin.y + potholeMap.bounds.size.height))
+        //the lat/lon of the top right corner
+        let neCoord = potholeMap.convertPoint(nePoint, toCoordinateFromView: potholeMap)
+        //the lat/lon of the bottom left corner
+        let swCoord = potholeMap.convertPoint(swPoint, toCoordinateFromView: potholeMap)
+        //the number of degrees the map width currently is
+        let mapDegreeWidth = neCoord.longitude - swCoord.longitude
+        //the number of clusters wide the map is
+        let potholeGroupUnitsWidth = mapDegreeWidth / 0.0001
+        //the number of pixels per cluster
+        let pixelWidthPerCluster = mapWidthInPixels / potholeGroupUnitsWidth
+        
+        
+//  TEST PRINTS TO MAKE SURE DATA LOOKS REASONABLE
+//        print ("\(nePoint)")
+//        print ("\(swPoint)")
+//        print ("\(neCoord)")
+//        print ("\(swCoord)")
+//        print ("\(mapWidthInPixels)")
+//        print ("\(mapDegreeWidth)")
+//        print ("\(potholeGroupUnitsWidth)")
+//        print ("\(pixelWidthPerCluster)")
+    
+        
+        let currentLocationGeoPoint = (point: GEO_POINT(latitude: (accelerometerDataTrigger.locManager.location?.coordinate.latitude)!, longitude: (accelerometerDataTrigger.locManager.location?.coordinate.longitude)!))
+        let query = BackendlessGeoQuery.queryWithPoint(currentLocationGeoPoint, radius: 200, units: YARDS) as! BackendlessGeoQuery
+        query.setClusteringParams(swCoord.longitude, eastLongitude: neCoord.longitude, mapWidth: Int32(mapWidthInPixels), clusterGridSize: Int32(pixelWidthPerCluster))
+        //These ints seem like a bad idea, but whatever. Is this casting method correct?
+        let points = backendless.geoService.getPoints(query)
+        print("Loaded geo points and clusters: \(points)")
+        for point in points.data {
+            if point is GeoCluster {
+                let clusterPoints = backendless.geoService.getClusterPoints(point as! GeoCluster)
+                print("Cluster points: \(clusterPoints)")
+            }
+        }
+    }
+
+    
+    
     //MARK: - Location and Map Methods
     
     func locationManager (manager: CLLocationManager,didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
@@ -45,7 +93,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let potholeSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
         let potholeRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLoc.coordinate.latitude, longitude: lastLoc.coordinate.longitude), span: potholeSpan)
         potholeMap.setRegion(potholeRegion, animated: true)
-        
     }
     
     func annotatePotholes() {
@@ -67,24 +114,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation != mapView.userLocation {
-        let reuseIdentifier = "pin"
-        var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier) as? MKPinAnnotationView
-        if pin == nil {
-            pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            pin!.pinTintColor = UIColor.blueColor()
-            pin!.canShowCallout = true
-            pin!.rightCalloutAccessoryView = UIButton(type: .ContactAdd)
-        } else {
-            pin!.annotation = annotation
-        }
-        return pin
-        }
+    func potholeMap(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        if annotation != mapView.userLocation {
+            let reuseIdentifier = "Pin"
+            var pin = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseIdentifier) as? MKPinAnnotationView
+            if pin == nil {
+                pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+                pin!.pinTintColor = UIColor.blueColor()
+                pin!.canShowCallout = true
+            } else {
+                pin!.annotation = annotation
+            }
+            return pin
+//        }
     }
+
     
-    
-    
+
     //MARK: - Life Cycle Methods
     
     override func viewDidLoad() {

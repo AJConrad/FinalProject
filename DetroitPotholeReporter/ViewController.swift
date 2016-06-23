@@ -10,12 +10,14 @@ import UIKit
 import CoreData
 
 //TO ASK TOM LIST:
-//ADD BUTTON THAT DELETES CORE DATA (the current trip array) + UPLOADS TO BACKENDLESS
-//CHECKS FOR POTHOLES WITHIN 4 DECIMAL PLACES GPS LOCATION, DOESNT ADD TO USER'S BACKENDLESS IF TRUE
-//IF "X" NUMBER OF USERS REPORTED A POTHOLE, FLAG AS GLOBALLY AVAILABLE
+
+//ADD BUTTON THAT DELETES CORE DATA (the current trip array)
+//IMPLEMENT GEOPOINT CLUSTERING, IF CLUSTER CONTAINS 4 FLAG AS POTHOLE
 //MOVE CURRENT BACKENDLESS ADDITION TO BUTTON TO ENABLE OFFLINE USAGE
-//ADD BACKENDLESS USERS AND AN INITAL VIEW CONTROLLER FOR LOGIN (or choice to not log in)
 //ONLY ALLOW LOGGED IN USERS TO SUBMIT POTHOLE DATA
+//WHY ISNT MY USER LOCATION WORKING
+
+
 
 
 //INFORMATION ON ATTITUDE
@@ -112,7 +114,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         accelerometerDataTrigger.setupLocationMonitoring()
-        voiceRecognizer.setUpOpenEars()
+        //speech recognizer off because I fucking hate how sucky it is
+        //voiceRecognizer.setUpOpenEars()
         print("View Did Load")
     }
     
@@ -122,7 +125,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         accelerometerDataTrigger.startMotionManager()
         finishTable()
         dataManager.downloadPotholes()
-        dataManager.getClusterGeoPoints()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finishTable), name: accelerometerDataTrigger.motionAndTableNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finishTable), name: voiceRecognizer.motionAndTableNotification, object: nil)
     }
