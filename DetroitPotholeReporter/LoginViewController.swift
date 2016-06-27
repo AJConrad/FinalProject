@@ -110,7 +110,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signupButton.enabled = false
-        loginButton.enabled = false
+//        loginButton.enabled = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loginSuccess), name: "LoggedInMsg", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loginFail), name: "LoggedInErrorMsg", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(regSuccess), name: "RegisteredMsg", object: nil)
